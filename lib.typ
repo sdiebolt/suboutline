@@ -16,11 +16,11 @@
 			last_elem = e
 		}
 		if last_elem == none {
-			outline(target: selector(target).after(pre.last().locate()))
+			outline(target: selector(target).after(after.location()))
 		} else {
 			outline(
 				target: selector(target)
-					.after(pre.last().location())
+					.after(after.location())
 					.before(last_elem.location()),
 				fill: fill, title: title, indent: indent
 			)
