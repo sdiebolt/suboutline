@@ -5,7 +5,7 @@
 
 = Heading 1
 
-#local_outline()
+#minitoc()
 
 == Heading 1.1
 
