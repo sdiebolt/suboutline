@@ -15,14 +15,15 @@
 			if e.level <= min_level { break }
 			last_elem = e
 		}
+		max_level = if max_level == calc.inf { calc.max(..elems.map(e => e.level)) } else { max_level }
 		if last_elem == none {
-			outline(target: selector(target).after(after.location()))
+			outline(target: selector(target).after(after.location()), depth: max_level)
 		} else {
 			outline(
 				target: selector(target)
 					.after(after.location())
 					.before(last_elem.location()),
-				fill: fill, title: title, indent: indent
+				fill: fill, title: title, indent: indent, depth: max_level
 			)
 		}
 	})
