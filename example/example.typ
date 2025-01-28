@@ -5,7 +5,7 @@
 
 = Heading 1
 
-#minitoc()
+#suboutline()
 
 == Heading 1.1
 
