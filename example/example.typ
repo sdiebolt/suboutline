@@ -1,4 +1,4 @@
-#import "lib.typ": *
+#import "../lib.typ": *
 #set heading(numbering: "1.1")
 
 #outline()
@@ -8,6 +8,8 @@
 #suboutline()
 
 == Heading 1.1
+
+#suboutline()
 
 #lorem(20)
 
