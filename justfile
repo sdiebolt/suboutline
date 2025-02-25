@@ -9,8 +9,9 @@ imagemagick := "convert"
 
 # Copy the package to the local Typst registry.
 @local:
-    mkdir -p ~/.local/share/typst/packages/local/suboutline/{{version}}
-    cp -r * ~/.local/share/typst/packages/local/suboutline/{{version}}
+    rm -rf ~/.local/share/typst/packages/local/suboutline
+    mkdir -p ~/.local/share/typst/packages/local/suboutline
+    ln -s $(pwd) ~/.local/share/typst/packages/local/suboutline/{{version}}
 
 # Build the example.
 @example:
