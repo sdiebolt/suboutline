@@ -23,35 +23,51 @@
     let min_level = current_heading.level
     let max_level = min_level + depth
 
-    let subheadings = query(selector(heading.where(outlined: true)).after(current_location))
-    let last_subheading = none
-    for subheading in subheadings {
-      if subheading.level <= min_level {
-        break
+    let following_headings = query(selector(heading.where(outlined: true)).after(current_location))
+    if following_headings == () {
+      max_level = if max_level == calc.inf {
+        none
+      } else {
+        max_level
       }
-      last_subheading = subheading
-    }
 
-    max_level = if max_level == calc.inf {
-      calc.max(..subheadings.map(s => s.level))
-    } else {
-      max_level
-    }
-
-    if last_subheading == none {
       outline(
         title: title,
-        target: selector(target).after(current_heading.location(), inclusive: false),
+        target: selector(target).after(
+          current_heading.location(),
+          inclusive: false,
+        ),
         depth: max_level,
         indent: indent,
       )
     } else {
-      outline(
-        title: title,
-        target: selector(target).after(current_heading.location(), inclusive: false).before(last_subheading.location()),
-        depth: max_level,
-        indent: indent,
-      )
+      let last_subheading = none
+      for following_heading in following_headings {
+        if following_heading.level <= min_level {
+          break
+        }
+        last_subheading = following_heading
+      }
+
+      max_level = if max_level == calc.inf {
+        calc.max(..following_headings.map(s => s.level))
+      } else {
+        max_level
+      }
+
+      if last_subheading != none {
+        outline(
+          title: title,
+          target: selector(target)
+            .after(
+              current_heading.location(),
+              inclusive: false,
+            )
+            .before(last_subheading.location()),
+          depth: max_level,
+          indent: indent,
+        )
+      }
     }
   }
 }
