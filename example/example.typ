@@ -25,7 +25,4 @@
 
 #suboutline(target: figure.where(kind: image))
 
-#figure(
-  circle(radius: 1cm),
-  caption: lorem(5),
-)
+#figure(circle(radius: 1cm), caption: lorem(5))

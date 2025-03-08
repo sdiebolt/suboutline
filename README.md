@@ -22,6 +22,8 @@ longer maintained by the original author.*
 
 == Heading 1.1
 
+#suboutline()
+
 #lorem(20)
 
 === Heading 1.1.1
@@ -34,6 +36,9 @@ longer maintained by the original author.*
 
 = Heading 2
 
+#suboutline(target: figure.where(kind: image))
+
+#figure(circle(radius: 1cm), caption: lorem(5))
 ```
 
 This produces
