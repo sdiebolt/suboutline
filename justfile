@@ -1,4 +1,4 @@
-version := "0.2.0"
+version := "0.3.0"
 commit_hash := `git rev-parse --short HEAD`
 typst := "typst"
 imagemagick := "convert"
