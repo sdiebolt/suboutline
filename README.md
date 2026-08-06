@@ -11,7 +11,7 @@ longer maintained by the original author.*
 ## Example
 
 ```typst
-#import "@preview/suboutline:0.3.0": *
+#import "@preview/suboutline:0.3.1": *
 #set heading(numbering: "1.1")
 
 #outline()
@@ -43,7 +43,7 @@ longer maintained by the original author.*
 
 This produces
 
-![](https://github.com/sdiebolt/suboutline/blob/main/example/example.png?raw=true)
+![Example output showing an outline and local sub-outlines](example/example.png)
 
 ## Usage
 
@@ -56,7 +56,7 @@ The `suboutline` function has the following signature:
   depth: none,
   indent: auto,
   fill: repeat([.], gap: 0.15em),
-) { /* .. */ }
+) = none
 ```
 
 This is designed to be as close to the
